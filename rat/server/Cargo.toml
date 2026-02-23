@@ -14,7 +14,7 @@ chrono = { version = "0.4", features = ["serde"] }
 # sqlx 0.6+ supports uuid 1.x; 0.5 only supported 0.8
 sqlx = { version = "0.6", features = ["runtime-tokio-rustls", "uuid", "postgres", "migrate", "chrono"] }
 
-warp        = { version = "0.3", default-features = false, features = ["tokio"] }
+warp        = { version = "0.3", default-features = false }
 tokio       = { version = "1", features = ["full"] }
 env_logger  = "0.10"
 anyhow      = "1.0"
