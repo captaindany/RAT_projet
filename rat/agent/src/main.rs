@@ -24,7 +24,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     // Install the agent (copy executable + set persistence)
-    let install_dir = install::install()?;
+    install::install()?;
+    let install_dir = config::get_agent_directory()?;
 
     // If an SSH target is provided as argument, spread to it then continue
     let mut args = env::args();
