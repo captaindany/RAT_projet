@@ -24,7 +24,7 @@ prettytable-rs  = "0.10"
 
 # Crypto — align versions across all crates
 ed25519-dalek   = "1"
-rand            = "0.8"
+rand            = "0.7"
 x25519-dalek    = "1"
 chacha20poly1305 = "0.9"
 blake2          = "0.9"
