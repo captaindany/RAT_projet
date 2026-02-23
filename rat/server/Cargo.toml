@@ -1,0 +1,27 @@
+[package]
+name = "server"
+version = "0.1.0"
+authors = ["Saladino Belisario <SaladinoBelisario@protonmail.ch>"]
+edition = "2021"
+
+[dependencies]
+common = { path = "../common" }
+
+# uuid must match common (uuid 1.x)
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+
+# sqlx 0.6+ supports uuid 1.x; 0.5 only supported 0.8
+sqlx = { version = "0.6", features = ["runtime-tokio-rustls", "uuid", "postgres", "migrate", "chrono"] }
+
+warp        = { version = "0.3", default-features = false, features = ["tokio"] }
+tokio       = { version = "1", features = ["full"] }
+env_logger  = "0.10"
+anyhow      = "1.0"
+dotenv      = "0.15"
+thiserror   = "1.0"
+serde       = { version = "1", features = ["derive"] }
+serde_json  = "1"
+log         = "0.4"
+ed25519-dalek = "1"
+base64      = "0.13"

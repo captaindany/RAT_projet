@@ -1,0 +1,28 @@
+# Rust build artifacts
+target/
+Cargo.lock
+
+# Environment files (contain secrets!)
+.env
+*.env
+
+# Database
+*.db
+*.sqlite
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Shellcode binaries
+shellcode/executor/shellcode.bin
+shellcode/hello_world/*.bin
+
+# Agent bundles
+bundle.zip
+rat/agent/bundle.zip
